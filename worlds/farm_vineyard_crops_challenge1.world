@@ -64,8 +64,7 @@
       <wall_time>1702456560 86305100</wall_time>
       <iterations>130912</iterations>
       <model name='Construction Cone'>
-        <!-- <pose>95.6057 125.406 0.829058 0.007031 0.01076 -0.002266</pose> -->
-        <pose>0 0 0 0 0 0</pose>
+        <pose>95.6057 125.406 0.829058 0.007031 0.01076 -0.002266</pose>
         <scale>1 1 1</scale>
         <link name='link'>
           <pose>95.6057 125.406 0.829058 0.007031 0.01076 -0.002266</pose>

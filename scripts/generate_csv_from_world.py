@@ -10,7 +10,6 @@ MODEL_KEYWORD = 'Construction Cone'
 
 def extract_models_pos(world_filename):
     root = ET.parse(world_filename).getroot()
-    models = root.findall('./world/model')
 
     coords = root.find('./world/spherical_coordinates')
     anchor = (
@@ -20,6 +19,7 @@ def extract_models_pos(world_filename):
     )
 
     data = []
+    models = root.findall('./world/state/model')
 
     for model in models:
         if model.attrib['name'].startswith(MODEL_KEYWORD):
