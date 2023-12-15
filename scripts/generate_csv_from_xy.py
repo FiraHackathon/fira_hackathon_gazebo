@@ -2,12 +2,35 @@
 import sys
 from pymap3d import enu
 import json
+import xml.etree.ElementTree as ET
+
+
+MODEL_KEYWORD = 'Construction Cone'
+
+
+def extract_models_pos(world_filename):
+    root = ET.parse(world_filename).getroot()
+    models = root.findall('./world/model')
+
+    anchor = (46.339159, 3.433923, 279.18)
+    data = []
+
+    for model in models:
+        if model.attrib['name'].startswith(MODEL_KEYWORD):
+            str_values = model.findtext('pose').split(' ')[0:3]
+            pos = tuple(map(float, str_values))
+            coords = enu.enu2geodetic(*pos, *anchor)
+            data.append((coords, pos))
+            
+    return data
+
+
 
 def convert_models_pos(input_file):
     """ Convert models position to WGS84
     Return the result in a list of (wgs84_coords, enu_coords)
     """
-    anchor = (46.3392, 3.43392, 279.18)
+    anchor = (46.339159, 3.433923, 279.18)
     data = []
 
     for line in input_file:
@@ -51,11 +74,13 @@ def save_geojson(data, filename):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print(f"Syntax: {sys.argv[0]} <output_path>", file=sys.stderr)
+    if len(sys.argv) < 3:
+        print(f"Syntax: {sys.argv[0]} <world_file> <output_file_base>", file=sys.stderr)
         exit(1)
 
-    output_name = sys.argv[1]
-    data = convert_models_pos(sys.stdin)
+    world_filename = sys.argv[1]
+    output_name = sys.argv[2]
+    # data = convert_models_pos(sys.stdin)
+    data = extract_models_pos(world_filename)
     save_csv(data, output_name + '.csv')
     save_geojson(data, output_name + '.geojson')
