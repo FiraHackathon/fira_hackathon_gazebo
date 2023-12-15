@@ -1,15 +1,6 @@
 #!/bin/bash
-world_file='worlds/farm_vineyard_crops_challenge1.world'
-keyword='Construction Cone'
-out_file_prefix='data/challenge1_waypoints'
-
 # go to the root of the package
 cd "$(dirname -- "${BASH_SOURCE[0]}")/.."
 
-# grep "${keyword}" -A1 "${world_file}" | \
-#   grep pose | \
-#   sed -r 's/.*<pose>([^<]*).*/\1/' | \
-#   cut -d ' ' -f 1-3 | \
-#   scripts/generate_csv_from_xy.py "${out_file_prefix}"
-
-scripts/generate_csv_from_xy.py "${world_file}" "${out_file_prefix}"
+scripts/generate_csv_from_world.py \
+  'worlds/farm_vineyard_crops_challenge1.world' 'data/challenge1_waypoints_01'

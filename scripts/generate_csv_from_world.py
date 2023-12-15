@@ -12,7 +12,13 @@ def extract_models_pos(world_filename):
     root = ET.parse(world_filename).getroot()
     models = root.findall('./world/model')
 
-    anchor = (46.339159, 3.433923, 279.18)
+    coords = root.find('./world/spherical_coordinates')
+    anchor = (
+        float(coords.findtext('latitude_deg')),
+        float(coords.findtext('longitude_deg')),
+        float(coords.findtext('elevation')),
+    )
+
     data = []
 
     for model in models:
@@ -22,22 +28,6 @@ def extract_models_pos(world_filename):
             coords = enu.enu2geodetic(*pos, *anchor)
             data.append((coords, pos))
             
-    return data
-
-
-
-def convert_models_pos(input_file):
-    """ Convert models position to WGS84
-    Return the result in a list of (wgs84_coords, enu_coords)
-    """
-    anchor = (46.339159, 3.433923, 279.18)
-    data = []
-
-    for line in input_file:
-        pos = tuple(map(float, line.split(' ')))
-        coords = enu.enu2geodetic(*pos, *anchor)
-        data.append((coords, pos))
-        
     return data
 
 
@@ -80,7 +70,6 @@ if __name__ == '__main__':
 
     world_filename = sys.argv[1]
     output_name = sys.argv[2]
-    # data = convert_models_pos(sys.stdin)
     data = extract_models_pos(world_filename)
     save_csv(data, output_name + '.csv')
     save_geojson(data, output_name + '.geojson')
