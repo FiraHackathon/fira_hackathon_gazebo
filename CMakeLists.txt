@@ -4,8 +4,16 @@ project(fira_hackathon_gazebo)
 find_package(gazebo_ros REQUIRED)
 find_package(ament_cmake REQUIRED)
 
-install(DIRECTORY worlds
-    DESTINATION share/${PROJECT_NAME}
+install( DIRECTORY
+  worlds
+  data
+  DESTINATION share/${PROJECT_NAME}
+)
+
+install(PROGRAMS
+  scripts/export_models_position
+  scripts/generate_csv_from_world.py
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 ament_environment_hooks("${CMAKE_CURRENT_SOURCE_DIR}/env-hooks/${PROJECT_NAME}.dsv.in")
