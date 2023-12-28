@@ -83,10 +83,17 @@ def generate_data(world_filename):
         'start': waypoints[0],
         'end': waypoints[1],
         'waypoints': waypoints[2:],
-        'fields': {
-            'vineyard': {},
-            'crops_field': {}
-        },
+        'fields': [
+            {
+                'type': 'vineyard',
+                'points': [],
+            },
+            {
+                'type': 'crops_field',
+                'direction': 0.0,
+                'points': [],
+            },
+        ],
     }
     return data
 
