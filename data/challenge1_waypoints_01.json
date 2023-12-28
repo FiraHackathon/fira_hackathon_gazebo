@@ -166,7 +166,7 @@
       ]
     },
     {
-      "type": "crop_field",
+      "type": "crops",
       "row_distance": 1.5,
       "points": [
         [

@@ -94,7 +94,7 @@ def generate_crop_fields(root: ET.Element, anchor: list):
     for pose in poses:
         points = transform_points(pose, crop_field_points, anchor)
         data.append({
-            'type': 'crop_field',
+            'type': 'crops',
             'row_distance': 1.5,
             'points': points,
         })
@@ -118,14 +118,23 @@ def generate_data(world_filename):
     return data
 
 
+def write_csv_line(file, type: str, point):
+    file.write(f"{type},{','.join(map(str, point))}\n")
+
+
 def save_csv(data, filename):
     file = open(filename, 'w')
-    file.write('latitude,longitude,altitude,x,y,z\n')
+    file.write('type,latitude,longitude,altitude,x,y,z\n')
+    write_csv_line(file, 'start', data['start'])
+    write_csv_line(file, 'end', data['end'])
 
-    waypoints = [data['start'], data['end']] + data['waypoints']
+    for point in data['waypoints']:
+        write_csv_line(file, 'waypoint', point)
 
-    for pt in waypoints:
-        file.write(','.join(map(str, pt)) + '\n')
+    for field in data['fields']:
+        type = f"field:{field['type']}"
+        for point in field['points']:
+            write_csv_line(file, type, point)
 
     file.close()
 

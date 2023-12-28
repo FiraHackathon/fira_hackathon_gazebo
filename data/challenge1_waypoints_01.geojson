@@ -375,7 +375,7 @@
           193.53105526429792,
           1.119100000432
         ],
-        "name": "crop_field"
+        "name": "crops"
       },
       "geometry": {
         "coordinates": [
@@ -395,7 +395,7 @@
           179.40223149314804,
           0.8842698444398784
         ],
-        "name": "crop_field"
+        "name": "crops"
       },
       "geometry": {
         "coordinates": [
@@ -415,7 +415,7 @@
           181.07429728604174,
           0.8788698457358783
         ],
-        "name": "crop_field"
+        "name": "crops"
       },
       "geometry": {
         "coordinates": [
@@ -435,7 +435,7 @@
           195.2031210571916,
           1.1137000017279999
         ],
-        "name": "crop_field"
+        "name": "crops"
       },
       "geometry": {
         "coordinates": [
