@@ -62,10 +62,10 @@ def transform_points(pose, points, anchor):
 
 def generate_vineyards(root: ET.Element, anchor: list):
     vineyard_points = [
-        [0.0, 1.0, 0.0],
-        [15.0, 1.0, 0.0],
-        [15.0, 7.0, 0.0],
-        [0.0, 7.0, 0.0],
+        [1.0,   0.0, 0.0],
+        [1.0, -15.0, 0.0],
+        [7.0, -15.0, 0.0],
+        [7.0,   0.0, 0.0],
     ]
 
     data = []
@@ -83,10 +83,10 @@ def generate_vineyards(root: ET.Element, anchor: list):
 
 def generate_crop_fields(root: ET.Element, anchor: list):
     crop_field_points = [
-        [0.0, 1.5, 0.0],
-        [15.0, 0.95, 0.0],
-        [15.0, 5.45, 0.0],
-        [0.0, 6.0, 0.0],
+        [1.5,    0.0, 0.0],
+        [0.95, -15.0, 0.0],
+        [5.45, -15.0, 0.0],
+        [6.0,    0.0, 0.0],
     ]
 
     data = []
@@ -136,17 +136,31 @@ def save_geojson(data, filename):
     features = []
     for point in waypoints:
         features.append({
-            "type": "Feature",
-            "properties": {},
-            "geometry": {
-                "coordinates": [point[1], point[0]],
-                "type": "Point"
+            'type': 'Feature',
+            'properties': {'type': 'waypoint'},
+            'geometry': {
+                'coordinates': [point[1], point[0]],
+                'type': 'Point'
             }
         })
 
+    for field in data['fields']:
+        for point in field['points']:
+            features.append({
+                'type': 'Feature',
+                'properties': {
+                    'type': 'field',
+                    'name': field['type'],
+                },
+                'geometry': {
+                    'coordinates': [point[1], point[0]],
+                    'type': 'Point'
+                }
+            })
+
     root = {
-        "type": "FeatureCollection",
-        "features": features,
+        'type': 'FeatureCollection',
+        'features': features,
     }
 
     with open(filename, 'w') as file:

@@ -3,7 +3,9 @@
   "features": [
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "type": "waypoint"
+      },
       "geometry": {
         "coordinates": [
           3.4351647867515007,
@@ -14,7 +16,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "type": "waypoint"
+      },
       "geometry": {
         "coordinates": [
           3.4349877404576037,
@@ -25,7 +29,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "type": "waypoint"
+      },
       "geometry": {
         "coordinates": [
           3.43484671875886,
@@ -36,7 +42,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "type": "waypoint"
+      },
       "geometry": {
         "coordinates": [
           3.4357793791071587,
@@ -47,7 +55,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "type": "waypoint"
+      },
       "geometry": {
         "coordinates": [
           3.434945979286434,
@@ -58,7 +68,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "type": "waypoint"
+      },
       "geometry": {
         "coordinates": [
           3.4343914049148077,
@@ -69,7 +81,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "type": "waypoint"
+      },
       "geometry": {
         "coordinates": [
           3.4353236132073928,
@@ -80,7 +94,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "type": "waypoint"
+      },
       "geometry": {
         "coordinates": [
           3.435640379997548,
@@ -91,7 +107,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "type": "waypoint"
+      },
       "geometry": {
         "coordinates": [
           3.4361022513739816,
@@ -102,7 +120,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "type": "waypoint"
+      },
       "geometry": {
         "coordinates": [
           3.436240992641941,
@@ -113,7 +133,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "type": "waypoint"
+      },
       "geometry": {
         "coordinates": [
           3.4360157457406966,
@@ -124,7 +146,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "type": "waypoint"
+      },
       "geometry": {
         "coordinates": [
           3.4356391914126236,
@@ -135,7 +159,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "type": "waypoint"
+      },
       "geometry": {
         "coordinates": [
           3.4355690857888574,
@@ -146,7 +172,9 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "type": "waypoint"
+      },
       "geometry": {
         "coordinates": [
           3.435408323403821,
@@ -157,11 +185,125 @@
     },
     {
       "type": "Feature",
-      "properties": {},
+      "properties": {
+        "type": "waypoint"
+      },
       "geometry": {
         "coordinates": [
           3.4351944708451625,
           46.34050842759567
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "field",
+        "name": "vineyard"
+      },
+      "geometry": {
+        "coordinates": [
+          3.4355726553757306,
+          46.340254381945385
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "field",
+        "name": "vineyard"
+      },
+      "geometry": {
+        "coordinates": [
+          3.435390393692365,
+          46.34020671749949
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "field",
+        "name": "vineyard"
+      },
+      "geometry": {
+        "coordinates": [
+          3.4354179061551844,
+          46.34015622823952
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "field",
+        "name": "vineyard"
+      },
+      "geometry": {
+        "coordinates": [
+          3.4356001676984707,
+          46.34020389264179
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "field",
+        "name": "crop_field"
+      },
+      "geometry": {
+        "coordinates": [
+          3.435863421194222,
+          46.34089995231559
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "field",
+        "name": "crop_field"
+      },
+      "geometry": {
+        "coordinates": [
+          3.435929165586556,
+          46.34077285103156
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "field",
+        "name": "crop_field"
+      },
+      "geometry": {
+        "coordinates": [
+          3.435983430757472,
+          46.34078789165429
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "field",
+        "name": "crop_field"
+      },
+      "geometry": {
+        "coordinates": [
+          3.4359176864708045,
+          46.34091499296874
         ],
         "type": "Point"
       }
