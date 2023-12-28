@@ -130,33 +130,31 @@ def save_csv(data, filename):
     file.close()
 
 
-def save_geojson(data, filename):
-    waypoints = [data['start'], data['end']] + data['waypoints']
+def create_geojson_point(point: list, type: str, extra_properties={}):
+    properties = {
+        'type': type,
+        'xyz': point[3:6],
+    }
+    properties.update(extra_properties)
 
-    features = []
-    for point in waypoints:
-        features.append({
-            'type': 'Feature',
-            'properties': {'type': 'waypoint'},
-            'geometry': {
-                'coordinates': [point[1], point[0]],
-                'type': 'Point'
-            }
-        })
+    return {
+        'type': 'Feature',
+        'properties': properties,
+        'geometry': {
+            'coordinates': [point[1], point[0], point[2]],
+            'type': 'Point'
+        },
+    }
+
+
+def save_geojson(data, filename):
+    features = [create_geojson_point(data['start'], 'start')]
+    features.append(create_geojson_point(data['end'], 'end'))
+    features += [create_geojson_point(point, 'waypoint') for point in data['waypoints']]
 
     for field in data['fields']:
-        for point in field['points']:
-            features.append({
-                'type': 'Feature',
-                'properties': {
-                    'type': 'field',
-                    'name': field['type'],
-                },
-                'geometry': {
-                    'coordinates': [point[1], point[0]],
-                    'type': 'Point'
-                }
-            })
+        features += [create_geojson_point(point, 'field', {'name': field['type']})
+                     for point in field['points']]
 
     root = {
         'type': 'FeatureCollection',
