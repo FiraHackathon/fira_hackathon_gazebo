@@ -12,7 +12,7 @@ install( DIRECTORY
 
 install(PROGRAMS
   scripts/export_models_position
-  scripts/generate_csv_from_world.py
+  scripts/generate_data_from_world
   DESTINATION lib/${PROJECT_NAME}
 )
 
