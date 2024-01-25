@@ -1,0 +1,3399 @@
+<sdf version='1.7'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>0</shadows>
+    </scene>
+
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>46.339159</latitude_deg>
+      <longitude_deg>3.433923</longitude_deg>
+      <elevation>279.18</elevation>
+      <heading_deg>180</heading_deg>
+    </spherical_coordinates>
+
+    <include>
+      <uri>model://farm</uri>
+      <name>farm</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://simple_vineyard</uri>
+      <name>vineyard</name>
+      <pose>109.080567 90.047365 0.271487 0.016891 0.009 0.361223</pose>
+    </include>
+
+    <include>
+      <uri>model://simple_field</uri>
+      <name>crop field</name>
+      <pose>128.009140 179.171616 1.120900 -0.007456 0.015699 -1.190115</pose>
+    </include>
+
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>129.771255 77.536385 167.812057 -0.000003 1.273797 1.875845</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+
+    <model name='obstacle_iso18497'>
+      <pose>145.011 84.1942 0 0 -0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_clone_clone'>
+      <pose>123.64 80.2206 0.029031 0.012616 0.014405 5e-05</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_clone_clone_0'>
+      <pose>117.512 93.8425 0.029031 0.012616 0.014405 5e-05</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_clone_clone_0_clone'>
+      <pose>111.002 99.3564 0.237894 0.012469 0.014387 5.1e-05</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_clone_clone_clone'>
+      <pose>117.675 71.7346 -0.015787 0.003935 0.037352 0.000515</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <audio>
+      <device>default</device>
+    </audio>
+    <wind/>
+    <model name='obstacle_iso18497_1'>
+      <pose>91.0898 80.0502 0 0 -0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_2'>
+      <pose>89.4933 93.758 0 0 -0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_2_clone'>
+      <pose>89.3728 93.422 0.642633 0.01251 0.014408 9.1e-05</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_3'>
+      <pose>81.8468 99.2034 0 0 -0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_2_clone_0'>
+      <pose>80.5207 101.617 0.642626 0.012505 0.014402 9e-05</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_2_clone_1'>
+      <pose>79.9457 102.643 0.642626 0.012505 0.014402 9e-05</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_3_clone'>
+      <pose>80.1543 119.327 0.811168 0.007066 0.010762 3.9e-05</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_4'>
+      <pose>63.5233 150.856 0 0 -0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_5'>
+      <pose>50.8028 158.444 0 0 -0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_5_clone'>
+      <pose>55.921 156.972 1.58839 0.01154 0.007546 4.2e-05</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_5_clone_0'>
+      <pose>56.5494 162.952 1.58839 0.01154 0.007546 4.2e-05</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_5_clone_1'>
+      <pose>76.1653 163.945 1.58839 0.01154 0.007546 4.2e-05</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_5_clone_1_clone'>
+      <pose>78.56 168.568 1.44248 0.01154 0.007546 4.2e-05</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_5_clone_1_clone_clone'>
+      <pose>86.3436 167.927 1.47172 0.011512 0.009396 6.4e-05</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_5_clone_1_clone_clone_0'>
+      <pose>87.1474 168.235 1.47172 0.011512 0.009396 6.4e-05</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_6'>
+      <pose>103.477 184.193 0 0 -0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_7'>
+      <pose>120.187 175.988 0 0 -0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_7_clone'>
+      <pose>125.277 177.818 1.29554 0 -0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_7_clone_0'>
+      <pose>124.31 170.234 1.29554 0 -0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_7_clone_clone'>
+      <pose>136.645 179.506 1.28407 0.074917 0.022288 0.012384</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_8'>
+      <pose>107.225 152.982 0 0 -0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_8_clone'>
+      <pose>101.522 152.231 1.01928 0 -0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_9'>
+      <pose>72.5647 134.542 0 0 -0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_9_clone'>
+      <pose>48.1765 126.771 1.17007 0.012693 0.009986 6.2e-05</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_9_clone_clone'>
+      <pose>33.8602 125.938 1.22315 0.021864 0.012817 0.00012</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_9_clone_clone_clone'>
+      <pose>33.6777 126.71 1.38969 0.021864 0.012817 0.00012</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_9_clone_clone_clone_0'>
+      <pose>33.2228 126.031 1.38969 0.021864 0.012817 0.00012</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+
+    <state world_name='default'>
+      <model name='obstacle_iso18497'>
+        <pose>145.018 84.1908 -0.295742 0.011009 0.021463 0.000145</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>145.018 84.1908 -0.295742 0.011009 0.021463 0.000145</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.000188 -0.00019 19.5998 0.00019 0.001507 -0.001264</acceleration>
+          <wrench>0.007533 -0.007612 783.992 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_0'>
+        <pose>112.934 90.9706 0.279136 0.012609 0.014374 9.3e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>112.934 90.9706 0.279136 0.012609 0.014374 9.3e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.000116 -0.000116 19.5999 -0.000749 -0.000528 -0.000211</acceleration>
+          <wrench>0.004628 -0.004635 783.995 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_1'>
+        <pose>91.0945 80.0461 0.445781 0.01251 0.014408 9.3e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>91.0945 80.0461 0.445781 0.01251 0.014408 9.3e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>3.5e-05 -3.5e-05 19.6 0.000136 0.000233 -9.3e-05</acceleration>
+          <wrench>0.001383 -0.001385 783.999 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_2'>
+        <pose>88.7111 93.0475 0.642533 0.012479 0.014374 9.2e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>88.7111 93.0475 0.642533 0.012479 0.014374 9.2e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.000119 -0.000119 19.5999 -0.000773 -0.00053 -0.000232</acceleration>
+          <wrench>0.004747 -0.004755 783.995 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_2_clone'>
+        <pose>89.4425 93.4523 0.637066 0.01248 0.014371 9.2e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>89.4425 93.4523 0.637066 0.01248 0.014371 9.2e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.00011 -0.00011 19.5999 -0.000698 -0.000529 -0.000161</acceleration>
+          <wrench>0.004388 -0.004395 783.995 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_2_clone_0'>
+        <pose>80.5258 101.613 0.823252 0.007048 0.010754 7e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>80.5258 101.613 0.823252 0.007048 0.010754 7e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.000143 -0.000143 19.5999 -0.000882 0.000789 -0.001627</acceleration>
+          <wrench>0.00571 -0.00573 783.994 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_2_clone_1'>
+        <pose>79.9503 102.64 0.836668 0.007076 0.01076 8.7e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>79.9503 102.64 0.836668 0.007076 0.01076 8.7e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -392 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_3'>
+        <pose>81.1317 100.818 0.811121 0.007073 0.010742 4.4e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>81.1317 100.818 0.811121 0.007073 0.010742 4.4e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -392 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_3_clone'>
+        <pose>79.6507 119.081 0.955867 0.007067 0.010763 3.3e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>79.6507 119.081 0.955867 0.007067 0.010763 3.3e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.065362 0.046164 -6.23832 -0.621168 -0.464732 -3.13077</acceleration>
+          <wrench>-2.6145 1.84657 -249.533 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_4'>
+        <pose>63.5249 150.854 1.40466 0.011558 0.007562 2.6e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>63.5249 150.854 1.40466 0.011558 0.007562 2.6e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.000121 -0.000121 19.5999 0.000786 0.000531 0.00025</acceleration>
+          <wrench>0.004847 -0.004826 783.995 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_5'>
+        <pose>50.8044 158.442 1.58835 0.011542 0.007546 3.8e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>50.8044 158.442 1.58835 0.011542 0.007546 3.8e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -392 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_5_clone'>
+        <pose>55.9224 156.97 1.53271 0.011532 0.007535 3.8e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>55.9224 156.97 1.53271 0.011532 0.007535 3.8e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.000176 -0.000175 19.5998 -0.000767 -0.001141 0.00036</acceleration>
+          <wrench>0.007026 -0.006997 783.993 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_5_clone_0'>
+        <pose>56.5508 162.95 1.59703 0.011559 0.007559 3.9e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>56.5508 162.95 1.59703 0.011559 0.007559 3.9e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.000139 -0.000139 19.5999 0.000946 0.000506 0.00043</acceleration>
+          <wrench>0.005573 -0.005549 783.994 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_5_clone_1'>
+        <pose>76.1657 163.945 1.44093 0.011517 0.009393 7e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>76.1657 163.945 1.44093 0.011517 0.009393 7e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>8.5e-05 -8.4e-05 19.5999 -0.000107 0.000669 -0.000751</acceleration>
+          <wrench>0.003381 -0.003373 783.997 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_5_clone_1_clone'>
+        <pose>78.5617 168.566 1.47169 0.011505 0.009393 7.3e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>78.5617 168.566 1.47169 0.011505 0.009393 7.3e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.000127 0.000127 -9.79987 0.000375 -0.000917 0.001252</acceleration>
+          <wrench>-0.005072 0.005061 -391.995 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_5_clone_1_clone_clone'>
+        <pose>86.3441 167.926 1.39139 0.011506 0.009392 8.3e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>86.3441 167.926 1.39139 0.011506 0.009392 8.3e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -392 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_5_clone_1_clone_clone_0'>
+        <pose>87.2539 168.288 1.38702 0.011515 0.009369 0.000103</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>87.2539 168.288 1.38702 0.011515 0.009369 0.000103</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -392 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_6'>
+        <pose>103.478 184.192 1.41816 0.011522 0.009374 4.3e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>103.478 184.192 1.41816 0.011522 0.009374 4.3e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.080127 0.100147 -8.63868 -0.953249 1.2574 0.004329</acceleration>
+          <wrench>-3.20506 4.00588 -345.547 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_7'>
+        <pose>120.187 175.989 1.32194 0.064825 0.05767 -0.007905</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>120.187 175.989 1.32194 0.064825 0.05767 -0.007905</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.125748 0.287564 -1.96757 1.34426 -0.453847 -1.53342</acceleration>
+          <wrench>-5.02992 11.5026 -78.7028 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_7_clone'>
+        <pose>125.279 177.818 1.28404 0.074771 0.022457 0.011293</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>125.279 177.818 1.28404 0.074771 0.022457 0.011293</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.057298 0.103729 4.30344 -1.91764 0.298396 -0.649058</acceleration>
+          <wrench>2.29194 4.14915 172.138 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_7_clone_0'>
+        <pose>124.31 170.235 1.23896 -0.042126 0.000988 -0.000531</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>124.31 170.235 1.23896 -0.042126 0.000988 -0.000531</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 -0 -0 0 -0 0</acceleration>
+          <wrench>0 -0 -0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_7_clone_clone'>
+        <pose>136.639 179.496 1.05338 0.011598 0.009229 0.011817</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>136.639 179.496 1.05338 0.011598 0.009229 0.011817</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.00012 -0.00012 19.5999 -0.000958 0.000129 -0.001054</acceleration>
+          <wrench>0.004815 -0.004804 783.995 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_8'>
+        <pose>107.226 152.981 1.01597 0.01271 0.009989 8.2e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>107.226 152.981 1.01597 0.01271 0.009989 8.2e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -392 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_8_clone'>
+        <pose>96.6018 150.558 1.09139 0.012685 0.009982 6.3e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>96.6018 150.558 1.09139 0.012685 0.009982 6.3e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -392 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_9'>
+        <pose>72.2438 137.586 1.17006 0.012692 0.009987 6.3e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>72.2438 137.586 1.17006 0.012692 0.009987 6.3e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.000142 -0.000142 19.5999 -0.000981 -0.000492 -0.000475</acceleration>
+          <wrench>0.005693 -0.005677 783.994 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_9_clone'>
+        <pose>48.1775 126.769 1.22315 0.021864 0.012817 0.000121</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>48.1775 126.769 1.22315 0.021864 0.012817 0.000121</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.000162 -0.00016 19.5998 -0.001274 -0.000149 -0.001075</acceleration>
+          <wrench>0.006477 -0.006415 783.993 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_9_clone_clone'>
+        <pose>33.8625 125.934 1.38852 0.021867 0.012818 0.000121</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>33.8625 125.934 1.38852 0.021867 0.012818 0.000121</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -392 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_9_clone_clone_clone'>
+        <pose>33.6781 126.709 1.40786 0.021872 0.01282 0.000122</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>33.6781 126.709 1.40786 0.021872 0.01282 0.000122</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -392 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_9_clone_clone_clone_0'>
+        <pose>32.8146 125.958 1.40249 0.021872 0.01282 0.000122</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>32.8146 125.958 1.40249 0.021872 0.01282 0.000122</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -392 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_clone'>
+        <pose>122.119 81.7902 -0.500364 0.012041 0.014873 -0.039718</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>122.119 81.7902 -0.500364 0.012041 0.014873 -0.039718</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -392 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_clone_clone'>
+        <pose>123.641 80.2199 -0.014469 0.001528 0.043881 0.001737</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>123.641 80.2199 -0.014469 0.001528 0.043881 0.001737</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.23922 0.051018 4.0791 0.268366 -0.223137 -2.56425</acceleration>
+          <wrench>9.56879 2.04074 163.164 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_clone_clone_0'>
+        <pose>117.52 93.8356 0.237765 0.012519 0.014392 6.7e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>117.52 93.8356 0.237765 0.012519 0.014392 6.7e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -392 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_clone_clone_0_clone'>
+        <pose>111.009 99.3502 0.400379 0.012475 0.014392 9.5e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>111.009 99.3502 0.400379 0.012475 0.014392 9.5e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>5.6e-05 -5.6e-05 19.5999 -0.000427 0.000125 -0.000531</acceleration>
+          <wrench>0.002246 -0.00225 783.998 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='obstacle_iso18497_clone_clone_clone'>
+        <pose>117.68 71.7303 -0.040745 0.012492 0.014394 0.000324</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>117.68 71.7303 -0.040745 0.012492 0.014394 0.000324</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 -0 -0 -0</acceleration>
+          <wrench>0 0 -392 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+  </world>
+</sdf>

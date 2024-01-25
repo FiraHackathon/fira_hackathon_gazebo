@@ -24,7 +24,7 @@ def extract_anchor(root: ET.Element):
 
 def extract_models_pos(root: ET.Element, anchor: list, prefix: str):
     data = []
-    models = root.findall('./world/state/model')
+    models = root.findall('./world/model')
 
     for model in models:
         if model.attrib['name'].startswith(prefix):

@@ -1,0 +1,507 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "start",
+        "xyz": [
+          163.694,
+          105.144,
+          -0.270257
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.4360491535655933,
+          46.34010483604916,
+          278.9127076902976
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "end",
+        "xyz": [
+          27.373503,
+          121.458107,
+          1.372911
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.4342785439526198,
+          46.34025161363074,
+          280.5541277194339
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "waypoint",
+        "xyz": [
+          138.21,
+          100.785,
+          0.0
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.435718151085813,
+          46.34006562893812,
+          279.18229217482764
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "waypoint",
+        "xyz": [
+          145.14,
+          93.2614,
+          -0.190174
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.4358081596473546,
+          46.33999794661987,
+          278.9921572207468
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "waypoint",
+        "xyz": [
+          134.532,
+          88.5422,
+          -0.081173
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.435670375617207,
+          46.339955495754715,
+          279.10085871371126
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "waypoint",
+        "xyz": [
+          95.302399,
+          125.243881,
+          0.810188
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.435160847258768,
+          46.34028566368742,
+          279.99213013077707
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "waypoint",
+        "xyz": [
+          116.357,
+          128.785,
+          0.61783
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.4354343185289196,
+          46.340317515672005,
+          279.8001914694141
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "waypoint",
+        "xyz": [
+          135.535843,
+          140.52623,
+          0.61783
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.435683428897869,
+          46.34042313399521,
+          279.8008177366345
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "waypoint",
+        "xyz": [
+          153.127,
+          169.285,
+          0.666378
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.4359119238095066,
+          46.34068183869119,
+          279.850462542006
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "waypoint",
+        "xyz": [
+          145.71019,
+          153.866776,
+          0.591079
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.4358155841739366,
+          46.34054314091929,
+          279.77459896562885
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "waypoint",
+        "xyz": [
+          162.929,
+          157.327,
+          0.300598
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.4360392352190448,
+          46.34057426458403,
+          279.4846183593391
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "waypoint",
+        "xyz": [
+          138.609,
+          202.844,
+          1.246462
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.4357233633101063,
+          46.34098373204641,
+          280.4311954815306
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "waypoint",
+        "xyz": [
+          109.475,
+          197.451,
+          1.491863
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.4353449465655617,
+          46.34093522291042,
+          280.67586142996106
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "waypoint",
+        "xyz": [
+          75.9541,
+          157.388,
+          1.369343
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.434909544545355,
+          46.340574828417495,
+          280.55173903909497
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "waypoint",
+        "xyz": [
+          76.872169,
+          141.903748,
+          1.194659
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.434921466554221,
+          46.34043553496303,
+          280.3767022098522
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "waypoint",
+        "xyz": [
+          92.273247,
+          147.788025,
+          1.082011
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.4351215071152117,
+          46.34048846690347,
+          280.26439187615006
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "waypoint",
+        "xyz": [
+          95.683,
+          87.3529,
+          0.026531
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.4351657831726166,
+          46.3399448036187,
+          279.2078464350062
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "waypoint",
+        "xyz": [
+          159.837,
+          131.84,
+          0.073383
+        ]
+      },
+      "geometry": {
+        "coordinates": [
+          3.4359990655677723,
+          46.34034498911781,
+          279.25674669584845
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "field",
+        "xyz": [
+          109.9459944063855,
+          90.37076925799623,
+          0.2624871214995079
+        ],
+        "name": "vineyard"
+      },
+      "geometry": {
+        "coordinates": [
+          3.435351039404266,
+          46.339971949611325,
+          279.4440741651316
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "field",
+        "xyz": [
+          115.24438375441734,
+          76.33998568054665,
+          0.00914442980704705
+        ],
+        "name": "vineyard"
+      },
+      "geometry": {
+        "coordinates": [
+          3.435419854431528,
+          46.33984573046282,
+          279.1906412155343
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "field",
+        "xyz": [
+          120.85694819273036,
+          78.46041122852401,
+          -0.04485484119590538
+        ],
+        "name": "vineyard"
+      },
+      "geometry": {
+        "coordinates": [
+          3.435492753917923,
+          46.339864804442506,
+          279.13677140561293
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "field",
+        "xyz": [
+          115.55855884469852,
+          92.49119480597359,
+          0.20848785049655547
+        ],
+        "name": "vineyard"
+      },
+      "geometry": {
+        "coordinates": [
+          3.435423939031007,
+          46.33999102363475,
+          279.3902043737223
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "field",
+        "xyz": [
+          128.56640098312417,
+          177.77917005476905,
+          1.0973524672764745
+        ],
+        "name": "crops"
+      },
+      "geometry": {
+        "coordinates": [
+          3.435592915266518,
+          46.34075825563043,
+          280.2811270461908
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "field",
+        "xyz": [
+          114.43693584702916,
+          172.7149618708247,
+          1.2178117448234052
+        ],
+        "name": "crops"
+      },
+      "geometry": {
+        "coordinates": [
+          3.435409390086808,
+          46.34071270148016,
+          280.4011783046446
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "field",
+        "xyz": [
+          116.10871879640165,
+          168.53762403513184,
+          1.1471691466528289
+        ],
+        "name": "crops"
+      },
+      "geometry": {
+        "coordinates": [
+          3.4354311034021605,
+          46.340675122676345,
+          280.3304539578979
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "field",
+        "xyz": [
+          130.23818393249664,
+          173.6018322190762,
+          1.026709869105898
+        ],
+        "name": "crops"
+      },
+      "geometry": {
+        "coordinates": [
+          3.4356146284766083,
+          46.34072067679189,
+          280.2104030765603
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}
