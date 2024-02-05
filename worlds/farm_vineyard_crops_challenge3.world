@@ -18,14 +18,17 @@
         <falloff>0</falloff>
       </spot>
     </light>
+
     <gravity>0 0 -9.8</gravity>
     <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
     <atmosphere type='adiabatic'/>
+
     <physics type='ode'>
       <max_step_size>0.001</max_step_size>
       <real_time_factor>1</real_time_factor>
       <real_time_update_rate>1000</real_time_update_rate>
     </physics>
+
     <scene>
       <ambient>0.4 0.4 0.4 1</ambient>
       <background>0.7 0.7 0.7 1</background>
@@ -47,33 +50,2384 @@
     </include>
 
     <include>
-      <uri>model://simple_field</uri>
-      <name>crop field</name>
-      <pose>147.9996 192.9737 1.1209 0.0157 0.0012 0.3807</pose>
-    </include>
-
-    <include>
       <uri>model://simple_vineyard</uri>
       <name>vineyard</name>
       <pose>126.6547 122.7025 0.4787 -0.0087 0.0188 -1.2099</pose>
     </include>
 
+    <include>
+      <uri>model://simple_field</uri>
+      <name>crop field</name>
+      <pose>55.888424 126.561508 1.120900 0.004000 0.001199 0.380700</pose>
+    </include>
+
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>129.771255 77.536385 167.812057 -0.000003 1.273797 1.875845</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+
+    <model name='obstacle_iso18497'>
+      <pose>141.668 138.926 0 0 -0 0</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Construction Cone'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>138.027 131.569 0 0 -0 0</pose>
+    </model>
+    <model name='obstacle_iso18497_clone'>
+      <pose>132.09 115.057 0.441298 0.015594 0.01954 0.000154</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Construction Cone_clone_clone'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>106.812 111.505 0.360627 0.014515 0.014781 -2.1e-05</pose>
+    </model>
+    <model name='Construction Cone_clone_clone_0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>113.074 118.752 0.360623 0.014518 0.014778 -2.5e-05</pose>
+    </model>
+    <model name='Construction Cone_clone_0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>127.901 127.243 0.400524 0.007621 0.014618 -2.6e-05</pose>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>100.699 124.834 0.822685 0.007055 0.010744 2.8e-05</pose>
+    </model>
+    <model name='obstacle_iso18497_clone_clone_clone_clone'>
+      <pose>84.0539 118.126 0.746936 0.007106 0.010721 0.006123</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>78.508 121.796 0.88864 0.007055 0.010743 1.9e-05</pose>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>71.9743 130.439 0.985747 0.007054 0.010744 1.4e-05</pose>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>72.4244 129.221 1.2284 0.007054 0.010744 1.4e-05</pose>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>73.0013 128.043 1.2284 0.007054 0.010744 1.4e-05</pose>
+    </model>
+    <model name='obstacle_iso18497_clone_clone_clone_clone_clone_clone'>
+      <pose>69.4707 125.527 0.909821 0.007102 0.010726 0.006129</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>75.7757 143.268 0.985745 0.007054 0.010744 8e-06</pose>
+    </model>
+    <model name='obstacle_iso18497_clone_clone_clone_clone_clone_clone_clone'>
+      <pose>99.3549 156.92 1.10979 0.00711 0.010716 0.006133</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_0_clone'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>86.4357 155.711 1.20642 0.011498 0.009389 -0.001721</pose>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_0_clone_clone'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>98.5538 163.236 1.24987 0.011497 0.00939 -0.001721</pose>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_0_clone_clone_0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>101.867 166.852 1.24987 0.011497 0.00939 -0.001721</pose>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_0_clone_clone_1'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>101.957 168.641 1.24987 0.011497 0.00939 -0.001721</pose>
+    </model>
+    <model name='obstacle_iso18497_clone_clone_clone_clone_clone_clone_clone_clone'>
+      <pose>99.1822 173.048 1.14273 0.011589 0.00929 0.006116</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_clone_clone_clone_clone_clone_clone_clone_clone_0'>
+      <pose>98.3145 172.165 1.14273 0.011589 0.00929 0.006116</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_clone_clone_clone_clone_clone_clone_clone_clone_clone'>
+      <pose>77.3621 180.713 1.33001 0.011584 0.009291 0.006113</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_0_clone'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>71.126 178.094 1.09052 0.007054 0.010744 -1.3e-05</pose>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_0_clone_0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>77.2076 161.089 1.09052 0.007053 0.010744 -1.6e-05</pose>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_0_clone_1'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>48.737 126.603 1.09052 0.007055 0.010744 -2.1e-05</pose>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_0_clone_2'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>48.0497 125.586 1.09052 0.007055 0.010744 -2.1e-05</pose>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_0_clone_3'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>47.4689 126.902 1.09052 0.007055 0.010744 -2.1e-05</pose>
+    </model>
+    <model name='obstacle_iso18497_clone_clone_clone_clone_clone_clone_clone_0'>
+      <pose>60.8792 121.851 1.10977 0.007133 0.010681 0.006129</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_1'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>65.7612 116.531 1.11842 0.007054 0.010744 -2.3e-05</pose>
+    </model>
+    <model name='obstacle_iso18497_clone_clone_clone_clone_clone_clone_clone_0_clone'>
+      <pose>35.8175 123.05 1.25389 -0.001063 -0.010675 0.005368</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='obstacle_iso18497_clone_clone_clone_clone_clone_clone_clone_0_clone_0'>
+      <pose>33.3708 121.575 1.25389 -0.001063 -0.010675 0.005368</pose>
+      <static>1</static>
+      <link name='link'>
+        <visual name='body'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <visual name='head'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <ambient>0.322 0.341 0.208 1</ambient>
+            <diffuse>0.322 0.341 0.208 1</diffuse>
+          </material>
+        </visual>
+        <collision name='body_col'>
+          <pose>0 0 0.265 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.19</radius>
+              <length>0.53</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='head_col'>
+          <pose>0 0 0.665 0 -0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.07</radius>
+              <length>0.27</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <inertial>
+          <mass>40</mass>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_0_clone_3_clone'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>31.4816 124.827 1.23509 0.021849 0.012899 -0.003172</pose>
+    </model>
+    <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_0_clone_3_clone_0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <scale>10 10 10</scale>
+              <uri>model://construction_cone/meshes/construction_cone.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose>34.6927 122.318 1.23509 0.021849 0.012899 -0.003172</pose>
+    </model>
     <state world_name='default'>
-      <sim_time>2054 354000000</sim_time>
-      <real_time>699 271471911</real_time>
-      <wall_time>1701435263 563237340</wall_time>
-      <iterations>692153</iterations>
+      <sim_time>1128 709000000</sim_time>
+      <real_time>364 552888075</real_time>
+      <wall_time>1706863172 839789489</wall_time>
+      <iterations>303310</iterations>
+      <model name='Construction Cone'>
+        <pose>140.091 127.462 0.400524 0.007621 0.014618 -2.4e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>140.091 127.462 0.400524 0.007621 0.014618 -2.4e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_0'>
+        <pose>127.939 124.214 0.494968 0.007004 0.010776 -0.004587</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>127.939 124.214 0.494968 0.007004 0.010776 -0.004587</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone'>
+        <pose>109.16 112.129 0.607657 0.007054 0.010745 -6.1e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>109.16 112.129 0.607657 0.007054 0.010745 -6.1e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_0'>
+        <pose>116.233 125.36 0.669568 0.014515 0.01478 -2.6e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>116.233 125.36 0.669568 0.014515 0.01478 -2.6e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone'>
+        <pose>113.687 124.306 0.770294 0.007053 0.010744 -3.7e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>113.687 124.306 0.770294 0.007053 0.010744 -3.7e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone'>
+        <pose>75.9189 117.786 0.985725 0.007053 0.010744 -4.4e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>75.9189 117.786 0.985725 0.007053 0.010744 -4.4e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone'>
+        <pose>69.5613 131.574 1.11841 0.007053 0.010745 -2.9e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>69.5613 131.574 1.11841 0.007053 0.010745 -2.9e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_0'>
+        <pose>77.0107 142.018 1.2064 0.011498 0.009389 -0.00173</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>77.0107 142.018 1.2064 0.011498 0.009389 -0.00173</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_0_clone'>
+        <pose>88.5171 154.228 1.24986 0.011498 0.009389 -0.001729</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>88.5171 154.228 1.24986 0.011498 0.009389 -0.001729</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_0_clone_clone'>
+        <pose>104.779 166.538 1.22298 0.011498 0.009389 -0.001724</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>104.779 166.538 1.22298 0.011498 0.009389 -0.001724</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_0_clone_clone_0'>
+        <pose>93.9578 172.52 1.42603 0.011498 0.009387 -0.001722</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>93.9578 172.52 1.42603 0.011498 0.009387 -0.001722</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_0_clone_clone_1'>
+        <pose>106.193 167.036 1.25333 0.011498 0.00939 -0.001725</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>106.193 167.036 1.25333 0.011498 0.00939 -0.001725</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone'>
+        <pose>68.5352 131.149 1.10503 0.007055 0.010744 -3.5e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>68.5352 131.149 1.10503 0.007055 0.010744 -3.5e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_0'>
+        <pose>73.0021 128.042 1.09052 0.007052 0.010744 -3.2e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>73.0021 128.042 1.09052 0.007052 0.010744 -3.2e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_0_clone'>
+        <pose>69.2512 176.369 1.65094 0.011507 0.009379 -0.000863</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>69.2512 176.369 1.65094 0.011507 0.009379 -0.000863</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_0_clone_0'>
+        <pose>76.1018 160.442 1.40118 0.011506 0.009379 -0.000814</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>76.1018 160.442 1.40118 0.011506 0.009379 -0.000814</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_0_clone_1'>
+        <pose>46.4768 128.867 1.32861 0.021901 0.012815 0.00074</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>46.4768 128.867 1.32861 0.021901 0.012815 0.00074</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_0_clone_2'>
+        <pose>43.9671 125.262 1.23137 0.021878 0.012849 -0.000881</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>43.9671 125.262 1.23137 0.021878 0.012849 -0.000881</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_0_clone_3'>
+        <pose>44.9007 129.366 1.26376 0.021851 0.012899 -0.003173</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>44.9007 129.366 1.26376 0.021851 0.012899 -0.003173</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_0_clone_3_clone'>
+        <pose>34.01 124.607 1.40019 0.02185 0.012899 -0.003172</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>34.01 124.607 1.40019 0.02185 0.012899 -0.003172</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_0_clone_3_clone_0'>
+        <pose>33.3667 122.98 1.29865 0.02185 0.012899 -0.003171</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>33.3667 122.98 1.29865 0.02185 0.012899 -0.003171</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='Construction Cone_clone_clone_clone_clone_0_clone_clone_clone_1'>
+        <pose>65.3042 109.531 1.19698 -0.029914 0.066376 -0.100521</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>65.3042 109.531 1.19698 -0.029914 0.066376 -0.100521</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
       <model name='crop field'>
-        <pose>147.999 192.973 1.1209 0.0157 0.0012 0.3807</pose>
+        <pose>55.8884 126.561 1.1209 0.004 0.001199 0.3807</pose>
         <scale>1 1 1</scale>
         <link name='link_0'>
-          <pose>148 192.972 1.22089 0.0157 0.0012 0.3807</pose>
+          <pose>55.8887 126.561 1.2209 0.004 0.001199 0.3807</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
         <link name='link_1'>
-          <pose>148 192.972 1.22089 0.0157 0.0012 0.3807</pose>
+          <pose>55.8887 126.561 1.2209 0.004 0.001199 0.3807</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -95,187 +2449,127 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='obstacle_iso18497_clone_0'>
-        <pose>131.712 131.364 0.496494 -0.001704 -0.016077 2.34287</pose>
+      <model name='obstacle_iso18497'>
+        <pose>139.991 135.329 0.440998 0.015616 0.019579 0.000147</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>131.712 131.364 0.496494 -0.001704 -0.016077 2.34287</pose>
+          <pose>139.991 135.329 0.440998 0.015616 0.019579 0.000147</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
-          <wrench>0 0 -392 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='obstacle_iso18497_clone_0_clone'>
-        <pose>135.081 124.249 0.358449 0.015466 0.018489 0.222304</pose>
+      <model name='obstacle_iso18497_clone'>
+        <pose>135.244 118.707 0.29308 0.012486 0.014415 4.3e-05</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>135.081 124.249 0.358449 0.015466 0.018489 0.222304</pose>
+          <pose>135.244 118.707 0.29308 0.012486 0.014415 4.3e-05</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
-          <wrench>0 0 -392 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='obstacle_iso18497_clone_0_clone_2_clone_clone'>
-        <pose>157.174 140.665 0.193677 0.005279 -0.014691 2.34238</pose>
+      <model name='obstacle_iso18497_clone_clone_clone_clone'>
+        <pose>87.9252 123.465 0.901749 0.007101 0.010721 0.006147</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>157.174 140.665 0.193677 0.005279 -0.014691 2.34238</pose>
+          <pose>87.9252 123.465 0.901749 0.007101 0.010721 0.006147</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 -0 -0 -0</acceleration>
-          <wrench>0 0 -392 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='obstacle_iso18497_clone_0_clone_2_clone_clone_clone_clone'>
-        <pose>169.675 150.086 0.08275 0.004327 -0.015024 2.40695</pose>
+      <model name='obstacle_iso18497_clone_clone_clone_clone_clone_clone'>
+        <pose>71.4272 125.42 1.10976 0.007129 0.010678 0.006131</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>169.675 150.086 0.08275 0.004327 -0.015024 2.40695</pose>
+          <pose>71.4272 125.42 1.10976 0.007129 0.010678 0.006131</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>2.4e-05 -2.4e-05 19.6 -0.000346 -0.00013 -0.000208</acceleration>
-          <wrench>0.000948 -0.000956 783.999 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='obstacle_iso18497_clone_0_clone_3_clone_0'>
-        <pose>143.924 172.746 0.900251 -0.001697 -0.016091 2.3424</pose>
+      <model name='obstacle_iso18497_clone_clone_clone_clone_clone_clone_clone'>
+        <pose>98.71 157.812 1.1427 0.011588 0.009285 0.006116</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>143.924 172.746 0.900251 -0.001697 -0.016091 2.3424</pose>
+          <pose>98.71 157.812 1.1427 0.011588 0.009285 0.006116</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
-          <wrench>0 0 -392 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone'>
-        <pose>80.3183 147.175 1.20891 -0.001336 -0.014774 2.34292</pose>
+      <model name='obstacle_iso18497_clone_clone_clone_clone_clone_clone_clone_0'>
+        <pose>66.2472 107.934 1.25389 -0.001075 -0.010635 0.005575</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>80.3183 147.175 1.20891 -0.001336 -0.014774 2.34292</pose>
+          <pose>66.2472 107.934 1.25389 -0.001075 -0.010635 0.005575</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>6.9e-05 -6.9e-05 19.5999 0.000287 -0.001051 0.001296</acceleration>
-          <wrench>0.002775 -0.002769 783.997 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_0'>
-        <pose>69.8593 142.863 1.25725 -0.005502 -0.013787 2.63353</pose>
+      <model name='obstacle_iso18497_clone_clone_clone_clone_clone_clone_clone_0_clone'>
+        <pose>36.2808 125.321 1.30026 0.021935 0.01268 0.005578</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>69.8593 142.863 1.25725 -0.005502 -0.013787 2.63353</pose>
+          <pose>36.2808 125.321 1.30026 0.021935 0.01268 0.005578</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
-          <wrench>0 0 -392 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_0_clone'>
-        <pose>69.5426 145.313 1.28843 -0.001229 -0.014781 2.3358</pose>
+      <model name='obstacle_iso18497_clone_clone_clone_clone_clone_clone_clone_0_clone_0'>
+        <pose>30.3733 124.982 1.39164 0.021934 0.012677 0.005585</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>69.5426 145.313 1.28843 -0.001229 -0.014781 2.3358</pose>
+          <pose>30.3733 124.982 1.39164 0.021934 0.012677 0.005585</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>1.6e-05 -1.6e-05 19.6 4.3e-05 -0.000245 0.000279</acceleration>
-          <wrench>0.000625 -0.000623 783.999 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_0_clone_clone'>
-        <pose>103.145 159.478 1.1367 -0.001229 -0.01478 2.3358</pose>
+      <model name='obstacle_iso18497_clone_clone_clone_clone_clone_clone_clone_clone'>
+        <pose>91.6538 173.417 1.32997 0.011565 0.009305 0.006116</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>103.145 159.478 1.1367 -0.001229 -0.01478 2.3358</pose>
+          <pose>91.6538 173.417 1.32997 0.011565 0.009305 0.006116</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>2.2e-05 -2.2e-05 19.6 5.7e-05 -0.000346 0.00039</acceleration>
-          <wrench>0.000878 -0.000876 783.999 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_1'>
-        <pose>76.2553 115.798 0.969187 0.002782 -0.012534 2.34304</pose>
+      <model name='obstacle_iso18497_clone_clone_clone_clone_clone_clone_clone_clone_0'>
+        <pose>92.4129 174.434 1.31206 0.011587 0.009278 0.006116</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>76.2553 115.798 0.969187 0.002782 -0.012534 2.34304</pose>
+          <pose>92.4129 174.434 1.31206 0.011587 0.009278 0.006116</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
-          <wrench>0 0 -392 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_1_clone'>
-        <pose>77.1133 115.005 0.954374 0.002784 -0.01254 2.34311</pose>
+      <model name='obstacle_iso18497_clone_clone_clone_clone_clone_clone_clone_clone_clone'>
+        <pose>79.1259 177.933 1.62267 0.011567 0.009305 0.006119</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose>77.1133 115.005 0.954374 0.002784 -0.01254 2.34311</pose>
+          <pose>79.1259 177.933 1.62267 0.011567 0.009305 0.006119</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
-          <wrench>0 0 -392 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_1_clone_clone'>
-        <pose>78.219 115.057 0.942868 0.002792 -0.012517 2.34308</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>78.219 115.057 0.942868 0.002792 -0.012517 2.34308</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.195925 0.129331 1.38484 -1.25855 -0.382506 -2.36915</acceleration>
-          <wrench>-7.83699 5.17323 55.3937 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_1_clone_clone_0'>
-        <pose>79.3682 115.453 0.933319 0.00276 -0.012535 2.34307</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>79.3682 115.453 0.933319 0.00276 -0.012535 2.34307</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>2.9e-05 -2.9e-05 19.6 8.5e-05 -0.000457 0.000529</acceleration>
-          <wrench>0.001172 -0.001177 783.999 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_1_clone_clone_1'>
-        <pose>80.6261 115.923 0.923125 0.002785 -0.012534 2.34309</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>80.6261 115.923 0.923125 0.002785 -0.012534 2.34309</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>4.6e-05 -4.6e-05 19.6 -0.000691 -0.000184 -0.000493</acceleration>
-          <wrench>0.001839 -0.001846 783.998 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_4'>
-        <pose>110.284 122.662 0.652003 0.00278 -0.012512 2.343</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>110.284 122.662 0.652003 0.00278 -0.012512 2.343</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.196243 0.129224 1.38514 0.886858 -0.646354 -2.74697</acceleration>
-          <wrench>-7.84973 5.16894 55.4055 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='obstacle_iso18497_clone_0_clone_5'>
-        <pose>153.735 190.489 1.24917 -0.012425 -0.028366 2.35243</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>153.735 190.489 1.24917 -0.012425 -0.028366 2.35243</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.03202 0.082653 -2.86092 2.522 -0.567045 -0.044582</acceleration>
-          <wrench>-1.28081 3.3061 -114.437 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='obstacle_iso18497_clone_1'>
-        <pose>131.842306 116.293341 0.312264 -0.000380 0.019070 -0.735183</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose>131.842306 116.293341 0.312264 -0.000380 0.019070 -0.735183</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.506417 -0.171879 -0.056922 2.31871 -0.49996 -2.32881</acceleration>
-          <wrench>-20.2567 -6.87515 -2.27688 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <model name='vineyard'>
-        <pose>126.655 122.703 0.4787 -0.0087 0.0188 -1.2099</pose>
+        <pose>126.654 122.703 0.4787 -0.0087 0.0188 -1.2099</pose>
         <scale>1 1 1</scale>
         <link name='link_0'>
-          <pose>126.656 122.702 0.528689 -0.0087 0.0188 -1.2099</pose>
+          <pose>126.655 122.702 0.528689 -0.0087 0.0188 -1.2099</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
         <link name='link_1'>
-          <pose>126.656 122.702 0.528689 -0.0087 0.0188 -1.2099</pose>
+          <pose>126.655 122.702 0.528689 -0.0087 0.0188 -1.2099</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -285,1606 +2579,5 @@
         <pose>0 0 10 0 -0 0</pose>
       </light>
     </state>
-    <gui fullscreen='0'>
-      <camera name='user_camera'>
-        <pose>62.1146 79.902 24.0268 0 0.461797 0.605526</pose>
-        <view_controller>orbit</view_controller>
-        <projection_type>perspective</projection_type>
-      </camera>
-    </gui>
-    <audio>
-      <device>default</device>
-    </audio>
-    <wind/>
-    <model name='obstacle_iso18497_clone_0'>
-      <pose>124.262 119.707 2.72467 0 -0 0</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='obstacle_iso18497_clone_1'>
-      <pose>131.842306 116.293341 0.312264 -0.000380 0.019070 -0.735183</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='obstacle_iso18497_clone_0_clone'>
-      <pose>126.122 122.478 0.512202 0.014553 0.014815 0.000108</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='obstacle_iso18497_clone_0_clone_5'>
-      <pose>145.747 192.747 0.483035 0.001854 -0.013279 2.34242</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='obstacle_iso18497_clone_0_clone_3_clone_0'>
-      <pose>132.857 164.643 0.833757 0.001654 -0.025139 2.34239</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone'>
-      <pose>80.3104 147.184 1.69097 0.003086 -0.024836 2.34296</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_0'>
-      <pose>69.9595 142.935 1.69097 0.003086 -0.024836 2.34296</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_1'>
-      <pose>79.4131 119.184 1.69097 0.003086 -0.024836 2.34296</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_4'>
-      <pose>114.116 108.816 1.69097 0.003086 -0.024836 2.34296</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='obstacle_iso18497_clone_0_clone_2_clone_clone'>
-      <pose>158.272 139.697 0.302239 0.003424 -0.023475 2.34236</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='obstacle_iso18497_clone_0_clone_2_clone_clone_clone_clone'>
-      <pose>167.574 152.047 0.086179 0.005274 -0.014745 2.34241</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_0_clone'>
-      <pose>70.4191 142.564 1.25709 -0.001329 -0.014801 2.34296</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_1_clone'>
-      <pose>80.4364 117.814 0.959115 0.002776 -0.012601 2.343</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-
-<spherical_coordinates>
-  <surface_model>EARTH_WGS84</surface_model>
-  <latitude_deg>46.339159</latitude_deg>
-  <longitude_deg>3.433923</longitude_deg>
-  <elevation>279.18</elevation>
-  <heading_deg>180</heading_deg>
-</spherical_coordinates>
-
-    <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_1_clone_clone'>
-      <pose>78.2163 115.058 0.937375 0.002759 -0.012564 2.34307</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_1_clone_clone_0'>
-      <pose>79.3656 115.454 0.937375 0.002759 -0.012564 2.34307</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_1_clone_clone_1'>
-      <pose>80.6234 115.925 0.937375 0.002759 -0.012564 2.34307</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='obstacle_iso18497_clone_0_clone_3_clone_3_clone_0_clone_clone'>
-      <pose>103.037 159.699 1.28844 -0.001204 -0.014806 2.3358</pose>
-      <static>0</static>
-      <link name='link'>
-        <visual name='body'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <visual name='head'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.322 0.341 0.208 1</ambient>
-            <diffuse>0.322 0.341 0.208 1</diffuse>
-          </material>
-        </visual>
-        <collision name='body_col'>
-          <pose>0 0 0.265 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.19</radius>
-              <length>0.53</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <collision name='head_col'>
-          <pose>0 0 0.665 0 -0 0</pose>
-          <geometry>
-            <cylinder>
-              <radius>0.07</radius>
-              <length>0.27</length>
-            </cylinder>
-          </geometry>
-          <surface>
-            <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <inertial>
-          <mass>40</mass>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
   </world>
 </sdf>
